@@ -1,0 +1,20 @@
+<header class="masthead">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading" *ngIf="postsService.currentRoute === '/home'">
+                    <h1>Página principal</h1>
+                    <span class="subheading">Aquí puedes echar un vistazo a los últimos post publicados</span>
+                </div>
+                <div class="site-heading" *ngIf="postsService.currentRoute === '/createPost'">
+                    <h1>Crea tu post</h1>
+                    <span class="subheading">Estás a un paso de ser blogger</span>
+                </div>
+                <div class="site-heading" *ngIf="postsService.currentRoute.startsWith('/post/')">
+                    <h1 class="hover-h1" [routerLink]="['/home']">Volver a la página principal</h1>
+                    <span class="subheading"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

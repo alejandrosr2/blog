@@ -1,0 +1,37 @@
+
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <div>
+                <form [formGroup]="formPost" (ngSubmit)="onSubmit()">
+                    <div>
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" formControlName="title">
+                        <p class="error" *ngIf="checkError('title', 'required')">
+                            El título no puede estar vacío
+                        </p>
+                    </div>
+                    <div>
+                        <label for="text" class="form-label">Texto</label>
+                        <textarea class="form-control" formControlName="text" cols="30" rows="10"></textarea>
+                        <p class="error" *ngIf="checkError('text', 'required')">
+                            El texto no puede estar vacío
+                        </p>
+                        <p class="error" *ngIf="checkError('text', 'minlength')">
+                            El texto debe tener más de 20 caracteres
+                        </p>
+                    </div>
+                    <div>
+                        <label for="author" class="form-label">Autor</label>
+                        <input type="text" class="form-control" formControlName="author">
+                        <p class="error" *ngIf="checkError('author', 'required')">
+                            El nombre no puede estar vacío
+                        </p>
+                    </div>
+                    <input type="submit" class="btn btn-secondary mt-3 mb-3" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
